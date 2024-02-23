@@ -46,6 +46,7 @@ export async function initServer(){
     const app = express();
     app.use(bodyParser.json());
     app.use(cors());
+    
     const server = new ApolloServer({
         typeDefs,
         resolvers,
