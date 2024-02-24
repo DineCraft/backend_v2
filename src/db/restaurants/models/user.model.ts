@@ -1,7 +1,10 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 import { sequelize } from  '../../../config/sequelize';
+import Cuisine from './cuisine.model';
+
 import { Employee } from './employee.model';
-import MenuItem from './menuItem.model';
+
+import Order from './order.model';
 
 
 
@@ -72,14 +75,22 @@ User.init({
 // the defined model is the class itself
 console.log(User === sequelize.models.User); // true
 
-User.hasMany(MenuItem, {
-  foreignKey: 'userId',
-  as: 'menuItems'
-});
-
 User.hasMany(Employee,{
   foreignKey: 'userId',
   as: 'employees'
 });
+
+User.hasMany(Order,{
+  foreignKey: 'userId',
+  as: 'orders'
+}
+);
+
+User.hasMany(Cuisine,{
+  foreignKey: 'userId',
+  as: 'cuisines'
+})
+
+
 
 export default User;

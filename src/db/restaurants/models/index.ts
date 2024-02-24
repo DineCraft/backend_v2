@@ -7,6 +7,7 @@ import OrderedItem from './orderedItem.model';
 import Cuisine from './cuisine.model';
 import Category from './category.model';
 import { Employee } from './employee.model';
+import Order from './order.model';
 
 interface Database {
   sequelize: Sequelize;
@@ -16,6 +17,7 @@ interface Database {
   Cuisine: typeof Cuisine;
   Category: typeof Category;
   Employee: typeof Employee;
+  Order: typeof Order;
 }
 
 const db: Database = {} as Database;
@@ -27,9 +29,10 @@ db.OrderedItem = OrderedItem;
 db.Cuisine = Cuisine;
 db.Category = Category;
 db.Employee = Employee;
+db.Order = Order;
 
 export function sync_models(){
-    db.sequelize.sync({ force: false }).then(() => {
+    db.sequelize.sync({ force: true }).then(() => {
 		console.log(` Database Synced...`)
     })
 }
