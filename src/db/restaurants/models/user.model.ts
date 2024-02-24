@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 import { sequelize } from  '../../../config/sequelize';
+import { Employee } from './employee.model';
 import MenuItem from './menuItem.model';
 
 
@@ -74,6 +75,11 @@ console.log(User === sequelize.models.User); // true
 User.hasMany(MenuItem, {
   foreignKey: 'userId',
   as: 'menuItems'
+});
+
+User.hasMany(Employee,{
+  foreignKey: 'userId',
+  as: 'employees'
 });
 
 export default User;
