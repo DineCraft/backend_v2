@@ -19,11 +19,11 @@ User.init({
     defaultValue: Sequelize.UUIDV4
   },
   firstName: {
-    type: DataTypes.STRING(20),
+    type: DataTypes.STRING(100),
     allowNull: false
   },
   lastName: {
-    type: DataTypes.STRING(20)
+    type: DataTypes.STRING(100)
     // allowNull defaults to true
   },
   restaurantName:{
@@ -31,7 +31,7 @@ User.init({
     allowNull: false
   },
   contactNo:{
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING(15),
     allowNull: false
   },
   emailId:{
@@ -39,7 +39,7 @@ User.init({
     allowNull: false
   },
   password:{
-    type: DataTypes.STRING(20),
+    type: DataTypes.STRING(100),
     allowNull:false
   },
   address:{
