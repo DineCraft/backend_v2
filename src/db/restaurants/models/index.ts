@@ -6,7 +6,7 @@ import MenuItem from './menuItem.model';
 import OrderedItem from './orderedItem.model';
 import Cuisine from './cuisine.model';
 import Category from './category.model';
-import { Employee } from './employee.model';
+import Employee  from './employee.model';
 import Order from './order.model';
 
 interface Database {

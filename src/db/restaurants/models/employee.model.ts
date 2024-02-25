@@ -59,4 +59,4 @@ Employee.init({
 
 });
 
-export {Employee, Role};
+export default Employee;
