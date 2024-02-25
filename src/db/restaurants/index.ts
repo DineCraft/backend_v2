@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 
-import { sequelize } from  '../../../config/sequelize';
+import { sequelize } from  '../../config/sequelize';
 import User from './user.model';
 import MenuItem from './menuItem.model';
 import OrderedItem from './orderedItem.model';

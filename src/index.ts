@@ -1,6 +1,6 @@
 import { initServer } from "./app/initServer";
 import { sequelize } from "./config/sequelize";
-import { sync_models } from "./db/restaurants/models";
+import { sync_models } from "./db/restaurants";
 
 
 const PORT = process.env.PORT || 5001;

@@ -1,7 +1,7 @@
 import {Model, DataTypes} from 'sequelize';
-import {sequelize} from '../../../config/sequelize';
+import {sequelize} from '../../config/sequelize';
 import {v4 as uuidv4} from 'uuid'
-import {Role} from '../../../app/utils/role'
+import {Role} from '../../app/utils/role'
 
 class Employee extends Model{};
 

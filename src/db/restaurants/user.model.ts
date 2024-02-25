@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
-import { sequelize } from  '../../../config/sequelize';
+import { sequelize } from  '../../config/sequelize';
 import Cuisine from './cuisine.model';
 
 import Employee  from './employee.model';

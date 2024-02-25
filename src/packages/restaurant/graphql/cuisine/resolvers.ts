@@ -1,4 +1,4 @@
-import Cuisine from "../../../../db/restaurants/models/cuisine.model"
+import Cuisine from "../../../../db/restaurants/cuisine.model"
 import { v4 as uuid } from 'uuid';
 
 const queries = {
