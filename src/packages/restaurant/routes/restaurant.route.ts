@@ -1,6 +1,6 @@
 import express from 'express'
 import {Response, Request} from 'express'
-import { register, login } from '../controllers/restaurantAuth';
+import { register, login } from '../controllers/restaurant.controller';
 
 const router = express.Router();
 
