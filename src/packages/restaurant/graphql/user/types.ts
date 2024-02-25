@@ -1,4 +1,4 @@
-const UserTypeDef =`
+export const types =`
     type User {
         userId: ID!
         firstName: String!
@@ -25,4 +25,3 @@ const UserTypeDef =`
     }
 `;
 
-export default UserTypeDef;
