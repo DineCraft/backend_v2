@@ -40,6 +40,10 @@ MenuItem.init(
         quantity:{
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        isDeleted: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         }
     },
     {

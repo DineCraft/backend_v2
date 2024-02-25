@@ -22,26 +22,25 @@ export async function initServer(){
     
     const server = new ApolloServer({
         typeDefs:`
-          ${User.types}
-          ${Cuisine.types}
-          ${Employee.types}
+            ${User.types}
+            ${Cuisine.types}
+            ${Employee.types}
             ${Category.types}
 
-          type Query {
-              ${User.queries}
-              ${Cuisine.queries}
-              ${Employee.queries}
+            type Query {
+                ${User.queries}
+                ${Cuisine.queries}
+                ${Employee.queries}
                 ${Category.queries}
+            }
 
-          }
-
-          type Mutation {
-
-              ${User.mutations}
-              ${Cuisine.mutations}
-              ${Employee.mutations}
+            type Mutation {
+                ${User.mutations}
+                ${Cuisine.mutations}
+                ${Employee.mutations}
                 ${Category.mutations}
-          }
+            }
+            
         `,
         resolvers:{
             Query: {

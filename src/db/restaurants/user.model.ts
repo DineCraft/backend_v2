@@ -66,9 +66,6 @@ User.init({
     type: DataTypes.BOOLEAN,
     // allowNull: false
   },
-
-
-
 }, {
   // Other model options go here
   sequelize, // We need to pass the connection instance

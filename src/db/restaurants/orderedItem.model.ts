@@ -24,8 +24,11 @@ OrderedItem.init({
     specialRequest:{
         type: DataTypes.STRING(100),
         allowNull: true
+    },
+    isDeleted:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
-
 },{
     sequelize,
     modelName: 'OrderedItem',

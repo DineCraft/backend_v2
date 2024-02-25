@@ -14,6 +14,10 @@ Cuisine.init({
     cuisineName:{
         type: DataTypes.STRING(100),
         allowNull: false
+    },
+    isDeleted:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 },{
     sequelize,
