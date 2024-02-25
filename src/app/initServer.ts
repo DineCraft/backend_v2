@@ -8,6 +8,7 @@ import {expressMiddleware} from '@apollo/server/express4'
 import { User } from '../packages/restaurant/graphql/user';
 import { Cuisine } from '../packages/restaurant/graphql/cuisine';
 import { Employee } from '../packages/restaurant/graphql/employee';
+import { Category } from '../packages/restaurant/graphql/category';
 import AuthRoutes  from '../packages/restaurant/routes/restaurant_auth_route';
 
 export async function initServer(){
@@ -22,13 +23,14 @@ export async function initServer(){
           ${User.types}
           ${Cuisine.types}
           ${Employee.types}
-
-
+            ${Category.types}
 
           type Query {
               ${User.queries}
               ${Cuisine.queries}
               ${Employee.queries}
+                ${Category.queries}
+
           }
 
           type Mutation {
@@ -36,6 +38,7 @@ export async function initServer(){
               ${User.mutations}
               ${Cuisine.mutations}
               ${Employee.mutations}
+                ${Category.mutations}
           }
         `,
         resolvers:{

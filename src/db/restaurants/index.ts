@@ -32,7 +32,7 @@ db.Employee = Employee;
 db.Order = Order;
 
 export function sync_models(){
-    db.sequelize.sync({ force: false, alter: true }).then(() => {
+    db.sequelize.sync({ force: true, alter: true }).then(() => {
 		console.log(` Database Synced...`)
     })
 }

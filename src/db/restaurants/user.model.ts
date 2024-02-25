@@ -13,7 +13,7 @@ class User extends Model {}
 
 User.init({
   // Model attributes are defined here
-  userId:{
+  RestaurantId:{
     type: DataTypes.UUID,
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4
@@ -80,18 +80,18 @@ User.init({
 console.log(User === sequelize.models.User); // true
 
 User.hasMany(Employee,{
-  foreignKey: 'userId',
+  foreignKey: 'restaurantId',
   as: 'employees'
 });
 
 User.hasMany(Order,{
-  foreignKey: 'userId',
+  foreignKey: 'restaurantId',
   as: 'orders'
 }
 );
 
 User.hasMany(Cuisine,{
-  foreignKey: 'userId',
+  foreignKey: 'restaurantId',
   as: 'cuisines'
 })
 
