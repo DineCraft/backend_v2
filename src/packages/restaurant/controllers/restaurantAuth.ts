@@ -1,8 +1,7 @@
 import User from '../../../db/restaurants/user.model';
 
 import bcrypt from 'bcrypt';
-
-
+import Jwt from 'jsonwebtoken';
 
 export const register = async ({firstName, lastName, restaurantName, contactNo,  emailId, password, address, pincode} : {
         emailId: string,
@@ -28,6 +27,7 @@ export const register = async ({firstName, lastName, restaurantName, contactNo, 
             });
             return user;
         } catch (error) {
+            
             throw error;
         }
 }
@@ -51,9 +51,12 @@ export const login = async ({emailId, password} : {
             throw new Error('Invalid password');
         }
 
-        
-
-        return user;
+        const token = Jwt.sign({userId: user.userId}, process.env.JWT_SECRET as string, {expiresIn: '1d'}); 
+        const userWithoutPassword = {
+            ...user.toJSON(),
+            password: undefined 
+        };
+        return {token, user: userWithoutPassword};
     } catch (error) {
         throw error;
     }

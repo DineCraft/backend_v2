@@ -6,8 +6,6 @@ import {Role} from '../../app/utils/role'
 class Employee extends Model{};
 
 
-
-
 Employee.init({
     employeeId:{
         type: DataTypes.UUID,

@@ -8,12 +8,14 @@ import {expressMiddleware} from '@apollo/server/express4'
 import { User } from '../packages/restaurant/graphql/user';
 import { Cuisine } from '../packages/restaurant/graphql/cuisine';
 import { Employee } from '../packages/restaurant/graphql/employee';
-
+import AuthRoutes  from '../packages/restaurant/routes/restaurant_auth_route';
 
 export async function initServer(){
     const app = express();
     app.use(bodyParser.json());
     app.use(cors());
+
+    app.use('/auth', AuthRoutes);
     
     const server = new ApolloServer({
         typeDefs:`

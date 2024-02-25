@@ -9,6 +9,7 @@ router.post('/register', async (req: Request, res: Response) => {
         const user = await register(req.body);
         res.status(201).send(user);
     } catch (error) {
+        console.log(error);
         res.status(400).send(error);
     }
 });
@@ -19,7 +20,6 @@ router.post('/login', async (req: Request, res: Response) => {
         res.status(200).send(user);
     } catch (error) {
         res.status(400).send(error);
-
     }
 });
 
