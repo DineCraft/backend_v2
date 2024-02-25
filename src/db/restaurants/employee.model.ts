@@ -29,7 +29,7 @@ Employee.init({
         allowNull: false
     },
     role:{
-        type: DataTypes.ENUM(Role.ADMIN, Role.MANAGER, Role.WAITER, Role.CHEF),
+        type: DataTypes.ENUM( Role.MANAGER, Role.WAITER, Role.CHEF),
         allowNull: false
     },
     salary:{

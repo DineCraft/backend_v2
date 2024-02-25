@@ -42,6 +42,10 @@ User.init({
     type: DataTypes.STRING(100),
     allowNull:false
   },
+  role:{
+    type: DataTypes.STRING(100),
+    defaultValue: 'RESTAURANT_OWNER'
+  },
   address:{
     type: DataTypes.JSON,
     allowNull: false
