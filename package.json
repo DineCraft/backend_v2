@@ -1,8 +1,14 @@
 {
-  "name": "dinecraft",
+  "name": "backend",
   "version": "1.0.0",
   "description": "Backend for dinecraft",
   "main": "index.ts",
+  "files": [
+    "src"
+  ],
+  "workspaces":[
+    "packages/*"
+  ],
   "scripts": {
     "start": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts"
   },

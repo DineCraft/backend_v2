@@ -40,7 +40,7 @@ export async function initServer(){
                 ${Employee.mutations}
                 ${Category.mutations}
             }
-            
+
         `,
         resolvers:{
             Query: {
