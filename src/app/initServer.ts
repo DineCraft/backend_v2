@@ -12,6 +12,7 @@ import { Employee } from '../packages/restaurant/graphql/employee';
 import { Category } from '../packages/restaurant/graphql/category';
 import AuthRoutes  from '../packages/restaurant/routes/restaurant.route';
 import CuisineRoutes from '../packages/restaurant/routes/cuisine.route';
+import CategoryRoutes from '../packages/restaurant/routes/category.route';
 
 export async function initServer(){
     const app = express();
@@ -20,6 +21,7 @@ export async function initServer(){
 
     app.use('/auth', AuthRoutes);
     app.use('/cuisine', CuisineRoutes);
+    app.use('/category', CategoryRoutes);
     
     const server = new ApolloServer({
         typeDefs:`

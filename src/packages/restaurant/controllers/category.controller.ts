@@ -1,6 +1,7 @@
 import Category from "../../../db/restaurants/category.model";
 import Cuisine from "../../../db/restaurants/cuisine.model";
 
+
 export const getCategories = async({cuisineId}: {cuisineId: string})=>{
     try{
         const categories = await Category.findAll({
@@ -71,6 +72,28 @@ export const deleteCategory = async({categoryId}: {categoryId: string})=>{
         await category.save();
 
         return category;
+    }
+    catch(err){
+        throw err;
+    }
+}
+
+export const getCategoriesByRestaurant = async({restaurantId}: {restaurantId: string})=>{
+    try{
+        const cuisines = await Cuisine.findAll({
+            where: {
+                restaurantId
+            }
+        });
+
+        const categories = await Category.findAll({
+            where: {
+                cuisineId: cuisines.map((cuisine: any)=>cuisine.cuisineId),
+                isDeleted: false
+            }
+        })
+
+        return categories;
     }
     catch(err){
         throw err;
