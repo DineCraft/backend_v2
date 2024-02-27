@@ -45,4 +45,11 @@ export const queries ={
 
 }
 
+const mutations ={
+    addemployee: async(_:any, args: any)=>{
+
+
+    }
+}
+
 export const resolvers = { queries };

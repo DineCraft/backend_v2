@@ -63,6 +63,7 @@ export const deleteEmployee = async ({employeeId}:{
             throw new Error('Employee not found');
         }
         employee.setDataValue('isDeleted', true);
+        await employee.save();
         return employee;
     } catch (error) {
         throw error;

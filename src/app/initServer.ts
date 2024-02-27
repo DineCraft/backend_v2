@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import { ApolloServer } from '@apollo/server';
 import {expressMiddleware} from '@apollo/server/express4'
 
+// import { User } from "@dinecraft/backend/packages/restaurant/graphql/user"
 import { User } from '../packages/restaurant/graphql/user';
 import { Cuisine } from '../packages/restaurant/graphql/cuisine';
 import { Employee } from '../packages/restaurant/graphql/employee';
