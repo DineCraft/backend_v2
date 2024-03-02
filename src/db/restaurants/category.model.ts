@@ -35,4 +35,6 @@ Category.hasMany(MenuItem, {
     as: 'menuItems'
 })
 
+
+
 export default Category;

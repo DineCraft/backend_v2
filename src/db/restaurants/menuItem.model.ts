@@ -41,6 +41,14 @@ MenuItem.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        cuisines:{
+            type: DataTypes.ARRAY(DataTypes.STRING(100)),
+            unique: true,
+        },
+        categories:{
+            type: DataTypes.ARRAY(DataTypes.STRING(100)),
+            unique: true,
+        },
         isDeleted: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,

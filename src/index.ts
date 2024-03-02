@@ -15,6 +15,7 @@ async function main(){
     // Authenticate with the database
     await sequelize.authenticate();
 
+
     if (process.env.NODE_ENV !== 'production') {
       sync_models();
     } else {

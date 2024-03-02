@@ -14,8 +14,8 @@ interface Database {
   User: typeof User;
   MenuItem: typeof MenuItem;
   OrderedItem: typeof OrderedItem;
-  Cuisine: typeof Cuisine;
-  Category: typeof Category;
+  // Cuisine: typeof Cuisine;
+  // Category: typeof Category;
   Employee: typeof Employee;
   Order: typeof Order;
 }
@@ -26,13 +26,14 @@ db.sequelize = sequelize;
 db.User = User;
 db.MenuItem = MenuItem;
 db.OrderedItem = OrderedItem;
-db.Cuisine = Cuisine;
-db.Category = Category;
+// db.Cuisine = Cuisine;
+// db.Category = Category;
 db.Employee = Employee;
 db.Order = Order;
 
-export function sync_models(){
-    db.sequelize.sync({ force: false, alter: true }).then(() => {
+
+export async function  sync_models(){
+    db.sequelize.sync({ force: true, alter: true }).then(() => {
 		console.log(` Database Synced...`)
     })
 }
