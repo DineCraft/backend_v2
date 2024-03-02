@@ -6,8 +6,8 @@ export const addCuisine = async ({cuisineName, restaurantId}:{
 }) => {
     try {
         const cuisine = await Cuisine.create({
-            cuisineName,
-            restaurantId
+            cuisineName: cuisineName,
+            restaurantId: restaurantId
         });
         return cuisine;
     } catch (error) {

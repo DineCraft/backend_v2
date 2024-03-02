@@ -50,8 +50,9 @@ export const login = async ({emailId, password} : {
         if (!isPasswordValid) {
             throw new Error('Invalid password');
         }
-
-        const token = Jwt.sign({userId: user.userId}, process.env.JWT_SECRET as string, {expiresIn: '1d'}); 
+        const restaurantId = user.RestaurantId;
+        
+        const token = Jwt.sign({RestaurantId: restaurantId}, process.env.JWT_SECRET as string, {expiresIn: '1d'}); 
         const userWithoutPassword = {
             ...user.toJSON(),
             password: undefined 

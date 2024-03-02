@@ -1,9 +1,9 @@
 import Employee from "../../../db/restaurants/employee.model";
 
-export const addEmployee = async ({firstName, lastName, restaurantId, contactNo, emailId, password, role, address, pincode, isVerified, isBlocked}:{
+export const addEmployee = async ({RestaurantId ,firstName, lastName, contactNo, emailId, password, role, address, pincode, isVerified, isBlocked}:{
     firstName: string,
     lastName: string,
-    restaurantId: string,
+    RestaurantId: string,
     contactNo: string,
     emailId: string,
     password: string,
@@ -15,17 +15,17 @@ export const addEmployee = async ({firstName, lastName, restaurantId, contactNo,
 }) => {
     try {
         const employee = await Employee.create({
-            firstName,
-            lastName,
-            restaurantId,
-            contactNo,
-            emailId,
-            password,
-            role,
-            address,
-            pincode,
-            isVerified,
-            isBlocked
+            firstName: firstName,
+            lastName: lastName,
+            restaurantId: RestaurantId,
+            contactNo: contactNo,
+            emailId: emailId,
+            password: password,
+            role: role,
+            address: address,
+            pincode: pincode,
+            isVerified: isVerified,
+            isBlocked: isBlocked
         });
         return employee;
     } catch (error) {
@@ -34,23 +34,25 @@ export const addEmployee = async ({firstName, lastName, restaurantId, contactNo,
 }
 
 
-export const getEmployee = async ({employeeId}:{
-    employeeId: string
+export const getEmployeesByRestaurant = async ({RestaurantId}:{
+    RestaurantId: string
 }) => {
     try {
-        const employee = await Employee.findOne({
+        const employees = await Employee.findAll({
             where: {
-                employeeId
+                restaurantId: RestaurantId
             }
         });
-        return employee;
+        return employees;
     } catch (error) {
         throw error;
     }
 }
 
 
-export const deleteEmployee = async ({employeeId}:{
+
+
+export const deleteEmployeeByRestaurant = async ({employeeId}:{
     employeeId: string
 }) => {
     try {
@@ -69,3 +71,5 @@ export const deleteEmployee = async ({employeeId}:{
         throw error;
     }
 }
+
+

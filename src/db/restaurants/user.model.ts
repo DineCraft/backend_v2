@@ -13,7 +13,7 @@ class User extends Model {}
 
 User.init({
   // Model attributes are defined here
-  RestaurantId:{
+  restaurantId:{
     type: DataTypes.UUID,
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4

@@ -14,7 +14,8 @@ Category.init({
     },
     categoryName:{
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     isDeleted:{
         type: DataTypes.BOOLEAN,
