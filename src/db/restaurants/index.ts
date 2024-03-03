@@ -8,6 +8,7 @@ import Cuisine from './cuisine.model';
 import Category from './category.model';
 import Employee  from './employee.model';
 import Order from './order.model';
+import Table from './table.model';
 
 interface Database {
   sequelize: Sequelize;

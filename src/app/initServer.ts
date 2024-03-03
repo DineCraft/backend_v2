@@ -7,12 +7,12 @@ import {expressMiddleware} from '@apollo/server/express4'
 
 // import { User } from "@dinecraft/backend/packages/restaurant/graphql/user"
 import { User } from '../packages/restaurant/graphql/user';
-import { Cuisine } from '../packages/restaurant/graphql/cuisine';
+// import { Cuisine } from '../packages/restaurant/graphql/cuisine';
 import { Employee } from '../packages/restaurant/graphql/employee';
-import { Category } from '../packages/restaurant/graphql/category';
+// import { Category } from '../packages/restaurant/graphql/category';
 import AuthRoutes  from '../packages/restaurant/routes/restaurant.route';
-import CuisineRoutes from '../packages/restaurant/routes/cuisine.route';
-import CategoryRoutes from '../packages/restaurant/routes/category.route';
+// import CuisineRoutes from '../packages/restaurant/routes/cuisine.route';
+// import CategoryRoutes from '../packages/restaurant/routes/category.route';
 import EmployeeRoutes from '../packages/restaurant/routes/employee.route';
 
 export async function initServer(){
@@ -21,36 +21,29 @@ export async function initServer(){
     app.use(cors());
 
     app.use('/restaurant', AuthRoutes);
-    app.use('/restaurant', CuisineRoutes);
-    app.use('/restaurant', CategoryRoutes);
+    // app.use('/restaurant', CuisineRoutes);
+    // app.use('/restaurant', CategoryRoutes);
     app.use('/restaurant', EmployeeRoutes);
     
     const server = new ApolloServer({
         typeDefs:`
             ${User.types}
-            ${Cuisine.types}
             ${Employee.types}
-            ${Category.types}
 
             type Query {
                 ${User.queries}
-                ${Cuisine.queries}
                 ${Employee.queries}
-                ${Category.queries}
             }
 
             type Mutation {
                 ${User.mutations}
-                ${Cuisine.mutations}
                 ${Employee.mutations}
-                ${Category.mutations}
             }
 
         `,
         resolvers:{
             Query: {
                 ...User.resolvers.queries,
-                ...Cuisine.resolvers.queries,
                 ...Employee.resolvers.queries
             }
         },
