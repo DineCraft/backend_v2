@@ -37,24 +37,19 @@ Thank you for considering contributing to DineCraft! We appreciate your interest
 
 4. **Install Dependencies:** Navigate to the project directory and install the required dependencies:
 
->cd dinecraft
->npm install
+```cd backend_v2```
+```npm install```
 
 
 5. **Start PostgreSQL Service:** Run the PostgreSQL service using Docker Compose. Make sure you have Docker installed on your machine.
 
->docker-compose up -d postgres
+```docker-compose up -d postgres --build```
 
 6. **Create Database:** Once PostgreSQL is running, create the necessary database for DineCraft.
 
-7. **Run Migrations:** If using Sequelize, run migrations to create the database schema.
+7. **Run the Application:** Start the DineCraft application:
 
-> npx sequelize-cli db:migrate
-
-
-8. **Run the Application:** Start the DineCraft application:
-
-> npm run dev
+```npm run dev```
 
 ## Code Review Process:
 
