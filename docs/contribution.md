@@ -29,7 +29,7 @@ Thank you for considering contributing to DineCraft! We appreciate your interest
 
 2. **Clone the Repository:** Clone the forked repository to your local machine using the following command:
 
-> git clone https://github.com/yourusername/dinecraft.git
+```git clone https://github.com/yourusername/dinecraft.git```
 
 3. **Setup Environment:**
 - Create a `.env` file in the root directory of the project.
