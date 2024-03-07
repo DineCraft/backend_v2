@@ -19,6 +19,7 @@ router.post('/login', async (req: Request, res: Response) => {
         const user = await login(req.body);
         res.status(200).send(user);
     } catch (error) {
+        console.log(error);
         res.status(400).send(error);
     }
 });

@@ -1,29 +1,28 @@
 import Employee from "../../../db/restaurants/employee.model";
 
-export const addEmployee = async ({RestaurantId ,firstName, lastName, contactNo, emailId, password, role, address, pincode, isVerified, isBlocked}:{
+export const addEmployee = async ({restaurant_id ,firstName, lastName, phone, emailId, password, role, address, isVerified, isBlocked}:{
     firstName: string,
     lastName: string,
-    RestaurantId: string,
-    contactNo: string,
+    restaurant_id: string,
+    phone: string,
     emailId: string,
     password: string,
     role: string,
     address: string,
-    pincode: number,
     isVerified: boolean,
     isBlocked: boolean
 }) => {
     try {
+
         const employee = await Employee.create({
             firstName: firstName,
             lastName: lastName,
-            restaurantId: RestaurantId,
-            contactNo: contactNo,
-            emailId: emailId,
+            restaurantId: restaurant_id,
+            phone: phone,
+            email: emailId,
             password: password,
             role: role,
             address: address,
-            pincode: pincode,
             isVerified: isVerified,
             isBlocked: isBlocked
         });
