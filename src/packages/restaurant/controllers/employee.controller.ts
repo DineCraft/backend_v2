@@ -48,6 +48,25 @@ export const getEmployeesByRestaurant = async ({RestaurantId}:{
     }
 }
 
+export const getEmployeeByRestaurant = async ({employeeId}:{
+    employeeId: string
+}) => {
+    try {
+        const employee = await Employee.findOne({
+            where: {
+                employeeId
+            }
+        });
+        if (!employee) {
+            throw new Error('Employee not found');
+        }
+        return employee;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 
 
 
