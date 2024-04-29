@@ -17,7 +17,7 @@ router.get('/:restaurant_id/cuisines', verifyToken , async (req: Request, res: R
 }
 );
 
-router.post('/:restaurantId/cuisines', verifyToken , async (req: Request, res: Response) => {
+router.post('/:restaurant_id/cuisines', verifyToken , async (req: Request, res: Response) => {
     try {
         const {restaurant_id} = req.params;
         const cuisine = await addCuisine({restaurantId: restaurant_id, cuisineName: req.body.cuisineName});

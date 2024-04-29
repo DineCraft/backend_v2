@@ -5,8 +5,14 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
-// Option 1: Passing a connection URI
 export const sequelize = new Sequelize(`${process.env.DATABASE_URL}`,{
     logging: false,
-}) // Example for postgres
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            require: false,
+            rejectUnauthorized: false
+        }
+    }
+}) 
 
