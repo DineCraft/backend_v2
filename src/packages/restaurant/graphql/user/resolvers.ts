@@ -1,4 +1,4 @@
-import User  from '../../../../db/restaurants/user.model';
+import User  from '../../../../db/restaurants/restaurant.model';
 
 
 import bcrypt from 'bcrypt';

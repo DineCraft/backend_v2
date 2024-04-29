@@ -3,27 +3,20 @@ import User from '../../../db/restaurants/user.model';
 import bcrypt from 'bcrypt';
 import Jwt from 'jsonwebtoken';
 
-export const register = async ({firstName, lastName, restaurantName, contactNo,  emailId, password, address, pincode} : {
-        emailId: string,
+export const register = async ({ name , email, password } : {
+        name: string,
+        email: string,
         password: string,
-        address: string,
-        pincode: number,
-        firstName: string,
-        lastName: string,
-        restaurantName: string,
-        contactNo: number
 
     }) => {
         try {
+            const firstName = name.split(' ')[0];
+            const lastName = name.split(' ')[1];
             const user = await User.create({
                 firstName,
                 lastName,
-                restaurantName,
-                contactNo,
-                emailId,
-                password: bcrypt.hashSync(password, 10),
-                address,
-                pincode
+                email,
+                password: bcrypt.hashSync(password, 10)
             });
             return user;
         } catch (error) {
@@ -32,27 +25,29 @@ export const register = async ({firstName, lastName, restaurantName, contactNo, 
         }
 }
 
-export const login = async ({emailId, password} : {
-    emailId: string,
+export const login = async ({email, password} : {
+    email: string,
     password: string
 }) => {
     try {
-        const user = await User.findOne({
+        const user: any = await User.findOne({
             where: {
-                emailId
+                email
             }
         });
         if (!user) {
             throw new Error('User not found');
         }
+
         const isPasswordValid = bcrypt.compareSync(password, user.password);
 
         if (!isPasswordValid) {
             throw new Error('Invalid password');
         }
-        const restaurantId = user.RestaurantId;
-        
-        const token = Jwt.sign({RestaurantId: restaurantId}, process.env.JWT_SECRET as string, {expiresIn: '1d'}); 
+
+        const user_id = user.userId;
+
+        const token = Jwt.sign({userId: user_id}, process.env.JWT_SECRET as string, {expiresIn: '1d'}); 
         const userWithoutPassword = {
             ...user.toJSON(),
             password: undefined 

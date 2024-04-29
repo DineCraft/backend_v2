@@ -1,4 +1,4 @@
-import Employee from "../../../db/restaurants/employee.model";
+import Employee from "../../../db/restaurants/user.model";
 
 export const addEmployee = async ({
   restaurant_id,

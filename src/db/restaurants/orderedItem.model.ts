@@ -31,7 +31,7 @@ OrderedItem.init({
     }
 },{
     sequelize,
-    modelName: 'OrderedItem',
+    modelName: 'orderedItem',
     timestamps: true
 })
 

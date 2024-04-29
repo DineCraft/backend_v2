@@ -1,4 +1,4 @@
-import Employee from '../../../../db/restaurants/employee.model';
+import Employee from '../../../../db/restaurants/user.model';
 
 export const queries ={
     verifyEmployee: async (_: any, args: any, context: any) => {

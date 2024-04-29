@@ -1,97 +1,62 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-import { sequelize } from  '../../config/sequelize';
-import Cuisine from './cuisine.model';
+import {Model, DataTypes} from 'sequelize';
+import {sequelize} from '../../config/sequelize';
+import {v4 as uuidv4} from 'uuid'
+import {Role} from '../../app/utils/role'
 
-import Employee  from './employee.model';
+class User extends Model{};
 
-import Order from './order.model';
-
-
-
-
-class User extends Model {}
 
 User.init({
-  // Model attributes are defined here
-  restaurantId:{
-    type: DataTypes.UUID,
-    primaryKey: true,
-    defaultValue: Sequelize.UUIDV4
-  },
-  firstName: {
-    type: DataTypes.STRING(100),
-    allowNull: false
-  },
-  lastName: {
-    type: DataTypes.STRING(100)
-    // allowNull defaults to true
-  },
-  restaurantName:{
-    type: DataTypes.STRING(100),
-    allowNull: false
-  },
-  contactNo:{
-    type: DataTypes.STRING(15),
-    allowNull: false
-  },
-  emailId:{
-    type: DataTypes.STRING(100),
-    allowNull: false
-  },
-  password:{
-    type: DataTypes.STRING(100),
-    allowNull:false
-  },
-  role:{
-    type: DataTypes.STRING(100),
-    defaultValue: 'RESTAURANT_OWNER'
-  },
-  address:{
-    type: DataTypes.JSON,
-    allowNull: false
-  },
-  pincode:{
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  isVerified:{
-    type: DataTypes.BOOLEAN,
-    // allowNull: false
-  },
-  isBlocked:{
-    type: DataTypes.BOOLEAN,
-    // allowNull: false
-  },  
-  isDeleted:{
-    type: DataTypes.BOOLEAN,
-    // allowNull: false
-  },
-}, {
-  // Other model options go here
-  sequelize, // We need to pass the connection instance
-  modelName: 'User', // We need to choose the model name
-  timestamps: true,
+    UserId:{
+        type: DataTypes.UUID,
+        primaryKey: true,
+        defaultValue: ()=> uuidv4()
+    },
+    firstName:{
+        type: DataTypes.STRING(20),
+        allowNull: false
+    },
+    lastName:{
+        type: DataTypes.STRING(20),
+        allowNull: true
+    },
+    email:{
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        unique: true
+    },
+    password:{
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    role:{
+        type: DataTypes.ENUM( Role.MANAGER, Role.WAITER, Role.CHEF, Role.RESTAURANT_OWNER),
+    },
+    salary:{
+        type: DataTypes.FLOAT,
+    },
+    phone:{
+        type: DataTypes.STRING(15),
+
+    },
+    address:{
+        type: DataTypes.STRING(100),
+    },
+    status:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    },
+    isDeleted:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    }
+    
+},{
+
+    sequelize,
+    modelName: 'user',
+    timestamps: true,
+
 });
-
-// the defined model is the class itself
-console.log(User === sequelize.models.User); // true
-
-User.hasMany(Employee,{
-  foreignKey: 'restaurantId',
-  as: 'employees'
-});
-
-User.hasMany(Order,{
-  foreignKey: 'restaurantId',
-  as: 'orders'
-}
-);
-
-User.hasMany(Cuisine,{
-  foreignKey: 'restaurantId',
-  as: 'cuisines'
-})
-
-
 
 export default User;

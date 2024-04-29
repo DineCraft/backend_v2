@@ -17,7 +17,7 @@ async function main(){
 
 
     if (process.env.NODE_ENV !== 'production') {
-      // sync_models();
+      sync_models();
     } else {
       console.log(`Database synchronization skipped in production environment.`);
     }

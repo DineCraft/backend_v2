@@ -26,7 +26,7 @@ Table.init({
 
 },{
     sequelize,
-    modelName: 'Table',
+    modelName: 'table',
     timestamps: true
 })
 

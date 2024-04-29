@@ -36,7 +36,7 @@ Plan.init({
     }
 },{
     sequelize,
-    modelName: 'Plan',
+    modelName: 'plan',
     timestamps: true
 })
 

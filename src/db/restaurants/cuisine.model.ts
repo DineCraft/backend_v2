@@ -22,7 +22,7 @@ Cuisine.init({
     }
 },{
     sequelize,
-    modelName: 'Cuisine',
+    modelName: 'cuisine',
     timestamps: true
 })
 

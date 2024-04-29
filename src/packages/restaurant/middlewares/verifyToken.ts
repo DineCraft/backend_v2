@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
-export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
+interface CustomRequest extends Request {
+    user?: any;
+}
+
+export const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
     const bearerHeader = req.headers['authorization'];
 
     if (typeof bearerHeader !== 'undefined') {
@@ -13,13 +17,14 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
 
         try {
             const verify = jwt.verify(bearerToken, `${process.env.JWT_SECRET}`);
-            console.log(verify);
             if (!verify) {
                 return res.status(403).json({ error: "Unauthorized" });
             }
 
-            req.body.user = verify; // Store the decoded token in req.user
-            const restaurantId = req.body.user.RestaurantId;
+            req.user = verify; 
+            console.log(req.user);
+            const restaurantId = req.user.restaurantId;
+            console.log(restaurantId);
             if (restaurantId !== req.params.restaurant_id) {
                 return res.status(403).json({ error: "Unauthorized" });
             }
