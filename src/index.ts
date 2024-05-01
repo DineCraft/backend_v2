@@ -12,7 +12,6 @@ async function main(){
     const app = await initServer();
 
     const socketService = new SocketService();
-    // Authenticate with the database
     await sequelize.authenticate();
 
 
