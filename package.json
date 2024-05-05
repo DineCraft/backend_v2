@@ -10,7 +10,9 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts"
+    "dev": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -33,12 +35,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "graphql": "^16.8.1",
+    "husky": "^9.0.11",
     "ioredis": "^5.3.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.3",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
+    "prettier": "^3.2.5",
     "sequelize": "^6.37.1",
     "socket.io": "^4.7.4",
     "uuid": "^9.0.1"

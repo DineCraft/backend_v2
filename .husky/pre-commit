@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Running Prettier..."
+
+npm run format     
+
+echo "Linting and formatting completed."
